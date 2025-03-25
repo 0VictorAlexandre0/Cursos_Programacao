@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+</head>
+<style>
+    body{
+        background-color: lightgray;
+        font: normal 18pt Arial;
+    }
+
+    header{
+        text-align: center;
+    }
+
+    section{
+        background-color: white;
+        text-align: center;
+        padding: 10px;
+        border-radius: 10px;
+        width: 500px;
+        margin: auto;
+        box-shadow: 3px 3px 20px black;
+    }
+
+    #div1{
+        background-color: red;
+    }
+
+    footer{
+        text-align: center;
+    }
+</style>
+
+<script>
+    function contar(){
+        var i = document.getElementById('inicio')
+        var f = document.getElementById('fim')
+        var p = document.getElementById('passo')
+
+        var inicio = Number(i.value) 
+        var fim = Number(f.value)
+        var passo = Number(p.value)
+
+        var resposta = document.getElementById('div2')
+
+        resposta.innerHTML += `Contando: ${inicio} a ${fim} de ${passo} em ${passo} <br> <br>`
+
+        if (passo <= 0) {
+            passo = 1
+            resposta.innerHTML += `0 inválido, considerando passo por 1 <br>`
+        }
+
+        if (inicio > fim) {
+            for (var c = inicio; c >= fim; c -= passo) {
+                resposta.innerHTML += `${c} >`
+            }
+        } else {
+            for (var c = inicio; c <= fim; c += passo) {
+            resposta.innerHTML += `${c} >`   
+            }
+        }
+        resposta.innerHTML += `Contagem finalizada`
+    }
+</script>
+
+<body>
+    <header>
+        <h1>Vamos contar</h1>
+    </header>
+
+    <section>
+        <div id="di1">
+            <p>Início: <input type="number" name="inicio" id="inicio"></p>
+            <p>Fim: <input type="number" name="fim" id="fim"></p>
+            <p>Passo: <input type="number" name="passo" id="passo"></p>
+        </div>
+
+        <input type="button" value="Contar" onclick="contar()"> <br> <br>
+        <div id="div2">
+            
+        </div>
+    </section>
+
+    <footer>
+        <p>Feito por Victor S2</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisador de Números</title>
+</head>
+<style>
+    body{
+        background-color: lightgray;
+        font: normal 18pt Arial;
+    }
+
+    header{
+        text-align: center;
+    }
+
+    section{
+        background-color: white;
+        text-align: center;
+        padding: 10px;
+        border-radius: 10px;
+        width: 500px;
+        margin: auto;
+        box-shadow: 3px 3px 20px black;
+    }
+
+    #div1{
+        background-color: red;
+    }
+
+    #div2{
+        background-color: blue;
+    }
+
+    footer{
+        text-align: center;
+    }
+
+    #lista{
+        width: 150px;
+    }
+</style>
+
+<body>
+    <header>
+        <h1>Analisador de Números</h1>
+    </header>
+
+    <section>
+        <div id="di1">
+            <p>Número de 1 à 100: <input type="number" id="numero"> <input type="button" value="Adicionar" onclick="adicionar()"></p>
+            <br>
+            <select id="lista" size="6"></select>
+            <br>
+            <input type="button" value="Finalizar" onclick="finalizar()">
+        </div>
+
+        <div id="resposta">
+
+        </div>
+    </section>
+
+    <footer>
+        <p>Feito por Victor S2</p>
+    </footer>
+</body>
+
+<script>
+    let num = document.getElementById('numero')
+    let list = document.getElementById('lista')
+    let resp = document.getElementById('resposta')
+
+    let valores = []
+
+    function verificaNumero(numero) {
+        if (Number(numero) >= 1 && Number(numero) <= 100) {
+            return true
+        } else {
+            return false
+        }
+    }
+
+    function verificaValor(numero, lista) {
+        if (lista.indexOf(Number(numero)) != -1) {
+            return true
+        } else {
+            return false
+        }
+    }
+
+
+    function adicionar() {
+        if (verificaNumero(num.value) && !verificaValor(num.value, valores)) {
+            valores.push(Number(num.value))
+
+            let item = document.createElement('option')
+            item.text = `Valor ${num.value} adicionado.`
+            lista.appendChild(item)
+            resp.innerHTML = ''
+        } else {
+            alert('Valor inválido ou já encontrado na lista.')
+        }
+        num.value = ''
+        num.focus() //vai diretamente pro local onde precisa digitar
+    }
+
+    function finalizar() {
+        if (valores.length == 0) {
+            alert('Adicione valores antes de finalizar!')
+        } else {
+            let total = valores.length
+
+            let maior = valores[0]
+            let menor = valores[0]
+            let soma = 0
+            let media = 0
+            for (let posicao in valores) {
+                soma += valores[posicao]
+                if (valores[posicao] > maior) {
+                    maior = valores[posicao]
+                }
+
+                if (valores[posicao] < menor) {
+                    menor = valores[posicao]
+                }
+            }
+            media = soma / total
+
+
+            resp.innerHTML = ''
+
+            resp.innerHTML += `<p>Ao todo, temos ${total} números cadastrados.</p>`
+
+            resp.innerHTML += `<p>O maior valor informado foi ${maior}.</p>`
+            resp.innerHTML += `<p>O menor valor informado foi ${menor}.</p>`
+
+            resp.innerHTML += `<p>Somando todos os valores, temos ${soma}.</p>`
+            resp.innerHTML += `<p>A média dos valores digitados é ${media}.</p>`
+
+        } 
+    }
+
+
+
+
+</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio DOM</title>
+    <style>
+        body{
+            background-color: gray;
+            color: white;
+            font: normal 18pt Arial;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Inicio Dom</h1>
+    <p>Aqui vem o resultado (paragrafo 1)</p>
+    <p>Aprendendo a usar <b>DOM</b> em JS (paragrafo 2)</p>
+    <div>Clique em mim</div>
+    <script>
+
+        var corpo = document.body
+        corpo.style.background = 'palevioletred' //modificado pelo js
+
+        var p1 = document.getElementsByTagName('p')[0]
+        document.write('Está escrito assim: ' + p1.innerText)
+        p1.style.color = 'blue' //modificado pelo js
+
+        //document.write(p1.innerHTML) = puxar toda formatação
+        //document.write(p1.innerText) = só o texto sem formatação
+
+
+
+
+        
+
+    </script>
+    
+</body>
+</html>

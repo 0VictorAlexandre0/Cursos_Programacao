@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somando números</title>
+</head>
+<style>
+    body{
+        font: normal 18pt Arial;
+    }
+
+    input{
+        font: normal 18pt Arial;
+        width: 100px;
+    }
+
+    div#resultado{
+        margin-top: 20px;
+    }
+</style>
+<body>
+    <h1>Somando valores</h1>
+    <input type="number" name="txtn1" id="txtn1"> +
+    <input type="number" name="txtn2" id="txtn2">
+    <input type="button" value="Somar" onclick="somar()">
+    
+    <div id="resultado">Resultado</div>
+
+    <script>
+        function somar(){
+        var caixa_texto1= document.getElementById('txtn1')
+        var caixa_texto2 = document.getElementById('txtn2')
+        var resultado = document.getElementById('resultado')
+
+        //veio como string, precisa passar para número
+        var n1 = Number(caixa_texto1.value) //parseInt tbm funciona
+        var n2 = Number(caixa_texto2.value)
+
+        var soma = n1 + n2
+        resultado.innerHTML = `A soma entre ${n1} e ${n2} é igual a <b>${soma}</b>`
+        }
+        
+
+    </script>
+</body>
+</html>

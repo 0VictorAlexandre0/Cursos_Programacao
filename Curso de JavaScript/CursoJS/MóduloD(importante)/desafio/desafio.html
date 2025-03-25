@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clima</title>
+
+    <script>
+        function carregar(){
+            var msg = document.getElementById('msg')
+            var imagem = document.getElementById('imagem')
+
+            var data_atual = new Date()
+            var hora = data_atual.getHours()
+
+            msg.innerHTML = `Agora são ${hora} horas.`
+
+            if (hora >= 0 && hora < 12) {
+                imagem.src = 'manha.jpg'
+                document.body.style.background = '#e2cd9f'
+            } else if (hora >= 12 && hora < 18) {
+                imagem.src = 'tarde.jpg'
+                document.body.style.background = '#b9846f'
+            } else {
+                imagem.src = 'noite.jpg'
+                document.body.style.background = '#515154'
+            }
+        }
+
+    </script>
+
+    <style>
+        body{
+            background-color: lightblue;
+            font: normal 20pt Arial;
+        }
+
+        header{
+            text-align: center;
+        }
+
+        section{
+            background-color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+            width: 500px;
+            margin: auto;
+            box-shadow: 3px 3px 20px black;
+        }
+
+        #imagem{
+            width: 50%;
+            height: 50%;
+            border-radius: 10px;
+        }
+
+        div{
+            padding: 5px;
+        }
+
+        footer{
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body onload="carregar()">
+    <header>
+        <h1>Hora do dia</h1>
+    </header>
+
+    <section>
+        <div id="msg">
+            Aparecer msg
+        </div>
+
+        <div id="fotos">
+            <img id="imagem" src="manha.jpg" alt="Foto do dia">
+        </div>
+    </section>
+
+    <footer>
+        <p>Feito por Victor <3</p>
+    </footer>
+</body>
+</html>

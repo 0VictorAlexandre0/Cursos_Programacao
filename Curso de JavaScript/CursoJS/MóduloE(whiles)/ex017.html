@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: lightgray;
+        font: normal 18pt Arial;
+    }
+
+    header{
+        text-align: center;
+    }
+
+    section{
+        background-color: white;
+        text-align: center;
+        padding: 10px;
+        border-radius: 10px;
+        width: 500px;
+        margin: auto;
+        box-shadow: 3px 3px 20px black;
+    }
+
+    #div1{
+        background-color: red;
+    }
+
+    footer{
+        text-align: center;
+    }
+
+</style>
+
+<script>
+function tabuada(){
+    var num = document.getElementById('numero')
+    var tabuada = document.getElementById('selectTabuada') // fazer aparecer um uma lista de tabuada no html
+
+    //verificar se tem um número digitado
+    if (num.value.length == 0) { //se estiver vazio
+        alert('Por favor, digite um número!')
+    } else {
+        var n = Number(num.value) //pegar o número digitado
+        
+        tabuada.innerHTML = '' //limpar a lista de tabuada todas as vezes q clicar no botão
+
+        mult = 1 
+        while (mult <= 10) {
+            var item = document.createElement('option') //criar um item na lista
+
+            item.text = `${n} x ${mult} = ${n*mult}` //criar o texto
+            mult++
+            
+            tabuada.appendChild(item) //adicionar o item na lista no HTML
+        }
+    }
+}
+</script>
+
+<body>
+    <header>
+        <h1>Tabuada</h1>
+    </header>
+
+    <section>
+        <div id="di1">
+            <p>Número: <input type="number" name="num" id="numero"></p>
+            <p><input type="button" value="Gerar Tabuada" onclick="tabuada()"></p>
+        </div>
+        
+        <div id="div2">
+            <select name="tabuada" id="selectTabuada" size="10"> <!-- tamanho da lista -->
+                <option>Digite um número</option>
+                <!--aqui vem a lista q criei de maneira dinamica no JS-->
+            </select>
+        </div>
+    </section>
+
+    <footer>
+        <p>Feito por Victor S2</p>
+    </footer>
+
+
+
+
+</body>
+</html>
