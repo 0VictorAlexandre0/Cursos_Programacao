@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-bt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mídias em HTML5</title>
+</head>
+<body>
+    <h1>Imagens dinâmicas</h1>
+    <p>Tente abrir esse site em vários dispositivos diferentes ou simplesmente aumente e diminua o tamnanho do seu navegador.</p>
+    <p>
+    
+    <picture>
+        <source media="(max-width:750px )" srcset="imagens/foto-p.png" type="image/png"> <!--adaptção de imagem "automatica" / source sempre acima dos outros-->
+        <source media="(max-width: 1050px )" srcset="imagens/foto-m.png" type="image/png"> <!--adaptção de imagem "automatica"-->
+        <img src="imagens/foto-g.png" alt="imagem flexível">
+    </picture>
+    <!--começe pela imagem base dependendo do que vc deseja (celular,pc,tablet etc) depois modifica de forma que fique do maior para o menor ou vice versa-->
+
+    <h1>Reproduzindo Áudios</h1>
+    <p>Vamos aprender a reproduzir áudios em HTML5</p>
+    <audio src="midia/Beethoven5.mp3" controls></audio> <!--para o audio tocar, precisa do comando "controls" para clicar no botao ou o comando "autoplay" para tocar sozinho (mas depende se o navegador é compatível)-->
+    
+    <!--para ter uma compatibilidade de audio 100%, necessita dos audios serem MP3,WAV ou OGG-->
+    
+    <audio preload="metadata" controls loop> <!--preload é decidir oque e quando vai carregar no seu site / loop é se quiser que a musica toque sem parar-->
+        <source src="midia/Beethoven5.mp3" type="audio/mpeg">
+        <source src="midia/Beethoven5.mp3" type="audio/ogg">
+        <source src="midia/Beethoven5.mp3" type="audio/wav">
+        
+        <p>infelimente seu navegador nõo consegue reproduzir áudio <a href="midia/Beethoven5.mp3">Clique aqui para baixar o arquivo MP3 "esta vazio"</a>
+
+
+
+
+        </p>
+    </audio>
+
+
+
+    </p>
+</body>
+</html>
