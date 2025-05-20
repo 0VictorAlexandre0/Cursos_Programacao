@@ -117,6 +117,7 @@ def info_pais(pais_en):
 
     return dados_coletados
 
+
 def conexao_bd(nome_comum, nome_oficial, capital, continente, regiao, sub_regiao, populacao, area, moeda_nome, moeda_simbolo, idioma_principal, url_bandeira):
     conexao = sqlite3.connect('paises.db')
     cursor = conexao.cursor()
