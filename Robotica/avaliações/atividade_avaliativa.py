@@ -177,11 +177,6 @@ def gerar_documento(dados_coletados):
     print('Documento Word gerado.')
 
 
-
-
-
-
-
 def main():
     pais_pt = coletar_paises()
     pais_en = traduzir_paises(pais_pt)
